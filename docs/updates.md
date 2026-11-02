@@ -92,3 +92,20 @@ If a release is faulty, withdraw its item from the feed, sign the feed again,
 and publish a fixed version with a higher version number. Do not replace a
 signed archive in place. Retain the last working bundle before a local install
 replacement. Homebrew package state and the app's cache are outside app updates.
+
+### v0.1.1 verification
+
+- Rust formatting, all 60 behavioral tests and strict Clippy passed.
+- The locally built app was installed in Applications and launched with the
+  native update menu. Its executable matched the published release ZIP.
+- CryptoKit independently accepted the published archive/feed signatures using
+  only the public key and rejected modified copies of both.
+- A separate updater-enabled test bundle had its version metadata lowered to
+  0.1.0. It fetched the production signed feed, downloaded 0.1.1 in the background,
+  installed it automatically on quit, passed nested signature checks and relaunched.
+  This is an updater smoke test, not a claim that the original 0.1.0 release had
+  an updater.
+- Homebrew installed the public 0.1.1 cask in an isolated app directory. Its
+  normal uninstall removed that test installation and preserved the local app.
+- GitHub release downloads were fetched anonymously and matched all checksums.
+- The Developer ID/notarization branch remains unrun without an Apple identity.
