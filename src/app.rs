@@ -577,7 +577,12 @@ impl App {
             Message::DockIcon => {
                 if !self.dock_icon_set {
                     match crate::native::set_dock_icon() {
-                        Ok(()) => self.dock_icon_set = true,
+                        Ok(()) => {
+                            self.dock_icon_set = true;
+                            if let Err(error) = crate::updater::start() {
+                                self.notice = Some(error);
+                            }
+                        }
                         Err(error) => self.notice = Some(error),
                     }
                 }

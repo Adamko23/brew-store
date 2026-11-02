@@ -1,4 +1,4 @@
-Brew Store v0.1.0 — Apple Silicon
+Brew Store v0.1.1 — Apple Silicon
 
 Requirements: an Apple Silicon Mac, macOS 13 or later, and a working Homebrew
 installation. This release does not install Homebrew automatically.
@@ -19,3 +19,7 @@ https://support.apple.com/102445
 The ZIP contains the same app bundle as the DMG. Published SHA-256 checksums
 allow verifying both downloads. Package changes inside Brew Store require
 confirmation and use your existing Homebrew installation.
+
+Starting with 0.1.1, signed app updates download in the background and install
+on quit when no authorization is needed. Use Brew Store > Check for App Updates
+for a manual check. This does not update your Homebrew packages automatically.

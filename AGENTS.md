@@ -1,6 +1,6 @@
 # Brew Store
 
-macOS desktop app, entirely Rust + Iced 0.14. Current scope and evidence:
+macOS desktop app, Rust + Iced 0.14 with Sparkle for native app updates. Current scope and evidence:
 [docs/v1.md](docs/v1.md). Preserve the two-screen product: Search and Installed.
 No inferred categories, dashboards or separate update/history sections.
 
@@ -10,8 +10,10 @@ No inferred categories, dashboards or separate update/history sections.
 - `cargo test --locked` — behavioral tests use fake executables for mutations.
 - `cargo clippy --locked --all-targets -- -D warnings`
 - `sh scripts/bundle-macos.sh` — release bundle, local ad-hoc signature.
-- `sh scripts/package-macos.sh` — DMG, ZIP and SHA-256 checksums in `dist/` for
-  the build host architecture; includes offline dependency notices (Python 3.9+).
+- `sh scripts/package-macos.sh --preview` — non-notarized Apple Silicon DMG,
+  ZIP, checksums and signed appcast. Requires the publisher's Keychain update key.
+  Normal packaging needs Developer ID and `--notary-profile PROFILE`; see
+  [docs/updates.md](docs/updates.md). Bundling fetches a pinned Sparkle binary.
 - `cargo run --release --locked -- --diagnose --data-dir .cache/diagnostic` — reads
   real Homebrew state and metadata, never changes packages.
 - `cargo run --release --locked -- --benchmark-search --data-dir .cache/diagnostic`
@@ -32,6 +34,8 @@ release builds when measuring performance. Do not compare compile CPU with app C
 - `assets.rs`: declared app paths, bounded icons/sizing and validated `open -a`.
 - `dependencies.rs`: installed typed dependency graph, rebuilt only with inventory.
 - `native.rs`: Dock icon and native language/decimal preferences.
+- `updater.rs`: main-thread Sparkle controller and native menu; Sparkle owns
+  verification, scheduling and replacement. Never add an Iced update timer.
 - `i18n.rs` / `locales/en.json`: Slovak source strings, English translations.
 - `tools.rs`: recognize CLT diagnostics and use Apple-supported repair paths.
 - `search.rs`: pure prepared search, dispatched off the UI thread.
@@ -99,3 +103,6 @@ release builds when measuring performance. Do not compare compile CPU with app C
   if needed elsewhere, uses the user's in-app browser preference.
 - Preserve unrelated changes; do not delegate or create chats without authorization.
 - Quit the running app before replacing its signed bundle during development.
+- Never export/commit the update private key. Public feeds and archives must be
+  signed with the key matching `assets/update-public-key.txt`. Publish archives
+  before the feed. Archive signatures do not substitute for Apple notarization.

@@ -9,6 +9,7 @@ mod native;
 mod search;
 mod tools;
 mod ui;
+mod updater;
 
 use app::App;
 use std::path::PathBuf;

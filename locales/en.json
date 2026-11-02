@@ -169,5 +169,7 @@
   "Všetko je aktuálne alebo pripnuté.": "Everything is up to date or pinned.",
   "používa ho {} balíček": "used by {} package",
   "používajú ho {} balíčky": "used by {} packages",
-  "používa ho {} balíčkov": "used by {} packages"
+  "používa ho {} balíčkov": "used by {} packages",
+  "Skontrolovať aktualizácie aplikácie…": "Check for App Updates…",
+  "V aplikácii chýba aktualizačný modul Sparkle.": "The Sparkle updater is missing from the application."
 }

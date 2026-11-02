@@ -1,6 +1,6 @@
 [package]
 name = "brew-store"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 rust-version = "1.88"
 description = "A local-first Homebrew desktop manager, written in Rust"
@@ -19,8 +19,8 @@ tokio = { version = "1.52", features = ["process", "io-util", "sync", "time", "f
 
 [target.'cfg(target_os = "macos")'.dependencies]
 objc2 = "0.5.3"
-objc2-app-kit = { version = "0.2.2", default-features = false, features = ["NSApplication", "NSResponder", "NSImage"] }
-objc2-foundation = { version = "0.2.2", default-features = false, features = ["NSData", "NSThread", "NSLocale", "NSArray", "NSString"] }
+objc2-app-kit = { version = "0.2.2", default-features = false, features = ["NSApplication", "NSResponder", "NSImage", "NSMenu", "NSMenuItem"] }
+objc2-foundation = { version = "0.2.2", default-features = false, features = ["NSData", "NSThread", "NSLocale", "NSArray", "NSString", "NSBundle"] }
 
 [dev-dependencies]
 tempfile = "3.27"
