@@ -1,0 +1,13 @@
+/target/
+/.cache/
+/dist/
+.DS_Store
+/.agents/
+/.codex/
+/.aws/
+.env
+.env.*
+!.env.example
+*.p12
+*.pem
+*.key

@@ -1,0 +1,21 @@
+Brew Store v0.1.0 — Apple Silicon
+
+Requirements: an Apple Silicon Mac, macOS 13 or later, and a working Homebrew
+installation. This release does not install Homebrew automatically.
+
+1. Drag Brew Store.app to Applications.
+2. Eject this disk image.
+3. Open Brew Store from Applications.
+
+This first preview is locally ad-hoc signed and is not notarized by Apple.
+macOS may block its first launch. For a developer-verification warning, the
+documented per-app option is System Settings > Privacy & Security > Open Anyway.
+Use that option only after checking that you downloaded this release from:
+https://github.com/Adamko23/brew-store/releases
+
+Apple's explanation:
+https://support.apple.com/102445
+
+The ZIP contains the same app bundle as the DMG. Published SHA-256 checksums
+allow verifying both downloads. Package changes inside Brew Store require
+confirmation and use your existing Homebrew installation.
