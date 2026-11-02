@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Brew Store</title>
+        <item>
+            <title>0.1.1</title>
+            <pubDate>Mon, 02 Nov 2026 20:53:54 +0100</pubDate>
+            <link>https://github.com/Adamko23/brew-store</link>
+            <sparkle:version>0.1.1</sparkle:version>
+            <sparkle:shortVersionString>0.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[Local installation and signed automatic application updates.
+
+- Sparkle 2.10.1 checks for app updates on launch and daily while the app runs.
+- Updates download in the background and install on quit when authorization is
+  not required. A native "Check for App Updates…" menu item is also available.
+- The update feed and archives are Ed25519 signed. Archives are verified before
+  extraction; system profiling is disabled.
+- The UI and application remain Rust + Iced. Sparkle is a bundled native framework.
+- Local bundle builds and public release packaging verify nested signatures.
+- Public packaging now requires Developer ID and notarization by default;
+  non-notarized releases require the explicit `--preview` option.
+
+**Apple Silicon, macOS 13+, Homebrew required.**
+
+This release remains an **ad-hoc signed, non-notarized preview**. A new download
+may require the per-app first-launch approval described in
+[Apple's instructions](https://support.apple.com/102445). Update signatures
+protect Sparkle updates; they do not constitute Apple notarization.
+
+Version 0.1.0 does not contain an updater and needs a one-time update to this
+version. Future releases published to the signed appcast can update in-app.
+]]></description>
+            <enclosure url="https://github.com/Adamko23/brew-store/releases/download/v0.1.1/Brew-Store-0.1.1-macos-arm64.zip" length="8871918" type="application/octet-stream" sparkle:edSignature="tzlo+2KbGBGtL23fxR3P0P/4zqobrvTIbVwjIpjkMONWiOeszHo0LPwZXRIB1/iYW6okuX3scjbLRiP6yN9KCw=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: 7EA+zIg8kD2VMJ6dD3mzjSN+tuam2+y+sHwie39Qm/kKXeA5CcukFW7gZT9FQNV8TWuNO01eEK1vjkWWSt5GDA==
+length: 2501
+-->
